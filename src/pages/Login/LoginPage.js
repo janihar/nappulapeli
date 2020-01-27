@@ -8,8 +8,8 @@ import logo from "../../assets/Koodarijahti_tunnus.svg";
 
 const LoginPage = () => {
   return (
-    <div class="body">
-      <img src={logo} />
+    <div className="body">
+      <img src={logo} alt="Coding Duck" />
       <LoginSection />
     </div>
   );

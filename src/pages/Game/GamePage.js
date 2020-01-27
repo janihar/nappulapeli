@@ -6,8 +6,8 @@ import GameForm from "../../components/Game/GameForm";
 
 const GamePage = () => {
   return (
-    <div class="body">
-      <img src={logo} />
+    <div className="body">
+      <img src={logo} alt="Coding Duck" />
       <GameForm />
     </div>
   );

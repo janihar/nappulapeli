@@ -58,6 +58,9 @@ body {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+.button:focus {
+  outline: 0;
+}
 
 .text {
   color: red;
