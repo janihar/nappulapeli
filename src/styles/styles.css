@@ -1,0 +1,24 @@
+.body {
+  background-image: url('../assets/koodarijahti_tausta_tre.jpg');
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+img {
+  width: 20%;
+  height: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  width: 50%;
+}
+
+.btn.btn-primary.btn-block {
+  background-color: #C53E28;
+}
+
