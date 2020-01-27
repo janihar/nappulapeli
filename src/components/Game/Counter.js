@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/counter.css";
-import logo from "../../assets/vincit_logo_red.jpg";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Counter = ({counter}) => {
+/**
+ * Counter presents player points
+ * @param {counter} counter integer
+ */
+const Counter = ({ counter }) => {
+  return <label className="counter">{counter}</label>;
+};
 
-  return (
-    <label class="counter">
-      {counter}
-    </label>
-  );
+Counter.propTypes = {
+  counter: PropTypes.number
 };
 
 export default Counter;

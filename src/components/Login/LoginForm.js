@@ -14,18 +14,18 @@ const onSubmit = event => {
 const LoginForm = () => {
   const [userName, setUsername] = useState("");
   return (
-    <div class="login-clean">
+    <div className="login-clean">
       <form onSubmit={onSubmit}>
-        <img src={logo} />
-        <div class="illustration"></div>
-        <div class="form-group">
+        <img src={logo} alt="Amazing Vincit Logo" />
+        <div className="illustration"></div>
+        <div className="form-group">
           <input
-            class="form-control"
+            className="form-control"
             placeholder="Käyttäjätunnus"
             onChange={() => e => setUsername(e.target.value)}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <Link
             to={{
               pathname: "/game",
@@ -34,7 +34,7 @@ const LoginForm = () => {
               }
             }}
           >
-            <button class="btn btn-primary btn-block" type="submit">
+            <button className="btn btn-primary btn-block" type="submit">
               Pelaa
             </button>
           </Link>
