@@ -4,11 +4,11 @@ import "../../styles/gamepage.css";
 import logo from "../../assets/Koodarijahti_tunnus.svg";
 import GameForm from "../../components/Game/GameForm";
 
-const GamePage = () => {
+const GamePage = (props) => {
   return (
     <div className="body">
       <img src={logo} alt="Coding Duck" />
-      <GameForm />
+      <GameForm name={props.history.location.state.name} />
     </div>
   );
 };
