@@ -1,24 +1,19 @@
-const router = require("express").Router();
-const WebSocket = require("ws");
+var app = require("express")();
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+const PORT = process.env.PORT || 8080
 
-const broadcast = (clients, message) => {
-  clients.forEach(client => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(message);
-    }
+server.listen(PORT);
+
+
+app.get("/", function(req, res) {
+  res.sendFile("TOIMII");
+});
+
+io.on("connection", function(socket) {
+  
+  socket.emit("news", { hello: "world" });
+  socket.on("my other event", function(data) {
+    console.log(data);
   });
-};
-
-router.get("/dog", (req, res) => {
-  broadcast(req.app.locals.clients, "Bark!");
-
-  return res.sendStatus(200);
 });
-
-router.get("/cat", (req, res) => {
-  broadcast(req.app.locals.clients, "Meow!");
-
-  return res.sendStatus(200);
-});
-
-module.exports = router;
