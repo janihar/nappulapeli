@@ -13,7 +13,7 @@ const LoginForm = props => {
 
   const doesExists = async name => {
     const fetchUser = await fetch(
-      "http://localhost:8080/doesExists?userName=" + name
+      "http://testvinc.herokuapp.com/doesExists?userName=" + name
     );
     let responseStatus = await fetchUser.status;
 

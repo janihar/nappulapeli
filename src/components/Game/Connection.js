@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client";
 export default class Socket {
   constructor(name, counter) {
     console.log("Connection established");
-    this.socket = socketIOClient("http://localhost:8080", {
+    this.socket = socketIOClient("http://testvinc.herokuapp.com/", {
       query: { name, counter },
       reconnection: true,
       reconnectionDelay: 500,
