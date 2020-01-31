@@ -4,10 +4,10 @@ import "../../styles/gamepage.css";
 import logo from "../../assets/Koodarijahti_tunnus.svg";
 import GameForm from "../../components/Game/GameForm";
 
-const GamePage = () => {
+const GamePage = (props) => {
   return (
-    <div class="body">
-      <img src={logo} />
+    <div className="body">
+      <img src={logo} alt="Coding Duck" />
       <GameForm />
     </div>
   );
