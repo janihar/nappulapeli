@@ -1,40 +1,67 @@
 var app = require("express")();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-const Player = require("./player/player");
-const Players = require("./player/players.js");
 const PORT = process.env.PORT || 8080;
+var cors = require("cors");
 server.listen(PORT);
 
 let serverCounter = 0;
-const players = new Players([]);
-app.get("/", function(req, res) {
-  res.send("TOIMII");
+const players = new Map();
+
+app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("WORKING");
 });
 
-io.on("connection", function(socket) {
-  //Gettin username and creating new player
-  console.log(socket.handshake.query);
-  const player = new Player(
-    socket.handshake.query.name,
-    socket.handshake.points
-  );
-  console.log(
-    "Uusi pelaaja : ",
-    player.getUsername(),
-    " Pelaajan pisteet : ",
-    player.getPoints()
-  );
-  players.addPlayer(player);
-  console.log("Pelaajat: ", players.getPlayer());
+//Check if username exists
+app.get("/doesExists", (req, res) => {
+  res.send("HELLO WORDL")
+  /*
+  console.log();
+  res.send(req.query.userName);
+  if (players.has()) {
+    res.send(true);
+  } else {
+  }
+  */
+});
+
+io.on("connection", socket => {
+  checkUser(socket.handshake.query.name, socket.handshake.query.counter);
+  //Getting username, points and creating new player
+  console.log("NEW PLAYER: ", socket.id);
+  console.log("Pelaajat: ", players);
   socket.on("game", data => {
-    io.emit("number", checkPoints());
+    //Check points
+    let point = checkPoints();
+    point = point - 1;
+    //Set points for specific user
+    players.set(
+      socket.handshake.query.name,
+      parseInt(players.get(socket.handshake.query.name)) + point
+    );
+    console.log(players);
+
+    //Sending only points to one client not them all, therefore socket.emit not io.emit
+    socket.emit("number", {
+      points: point,
+      playerPoints: parseInt(players.get(socket.handshake.query.name))
+    });
+  });
+
+  socket.on("disconnect", () => {
+    console.log("DISCONNECTED: ", socket.id);
   });
 });
 
+/**
+ * Calculates how many points are given to player,
+ * if amount is matching with rules
+ * we send specific amount of points
+ */
 const checkPoints = () => {
   serverCounter++;
-  console.log("Pisteet", serverCounter);
   if (serverCounter !== 0) {
     if (serverCounter % 500 === 0) {
       //Every 500
@@ -54,5 +81,18 @@ const checkPoints = () => {
     }
   } else {
     return 0;
+  }
+};
+
+/**
+ * Check if user aldready exists. We need this if user disconnects. We store user
+ * in Map and check if user already exists.
+ * @param {string} userName
+ * @param {integer} points
+ */
+const checkUser = (userName, points) => {
+  //User exists
+  if (!players.has(userName)) {
+    players.set(userName, points);
   }
 };

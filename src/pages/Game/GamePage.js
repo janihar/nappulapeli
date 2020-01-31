@@ -8,7 +8,7 @@ const GamePage = (props) => {
   return (
     <div className="body">
       <img src={logo} alt="Coding Duck" />
-      <GameForm name={props.history.location.state.name} />
+      <GameForm />
     </div>
   );
 };
