@@ -6,38 +6,30 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../assets/vincit_logo_red.jpg";
 import { Link, Redirect } from "react-router-dom";
 
-const doesExists = async name => {
-  const fetchUser = await fetch(
-    "http://localhost:8080/doesExists?userName=" + name
-  );
-  let data = await fetchUser.json();
-  console.log(data)
-
-  /*
-  const fetchUser = await fetch(
-    "http://localhost:8080/doesExists?userName=asdasd"
-  );
-  console.log(fetchUser);
-  */
-  return false;
-};
-
 const LoginForm = props => {
   const [userName, setUsername] = useState("");
   const [reDirect, setReDirect] = useState(false); //For router, redirecting to game page
   const [userExists, setExists] = useState(false);
+
+  const doesExists = async name => {
+    const fetchUser = await fetch(
+      "http://localhost:8080/doesExists?userName=" + name
+    );
+    let responseStatus = await fetchUser.status;
+
+    if (responseStatus === 200) {
+      setReDirect(true);
+    } else {
+      setExists(true);
+    }
+  };
+
   //Handling request, when user press submit button
   const onSubmit = event => {
     event.preventDefault();
-    /*
-    if (doesExists(userName)) {
-      setExists(true);
-    } else {
-     
-    }
-*/ setReDirect(true);
-    
+    doesExists(userName);
   };
+
   //Handling textinput when passing text
   const handleChange = e => {
     setUsername(e.target.value);
