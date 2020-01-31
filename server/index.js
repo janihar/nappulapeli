@@ -16,15 +16,14 @@ app.get("/", (req, res) => {
 
 //Check if username exists
 app.get("/doesExists", (req, res) => {
-  res.send("HELLO WORDL")
-  /*
-  console.log();
-  res.send(req.query.userName);
-  if (players.has()) {
-    res.send(true);
+ 
+  if (players.has(req.query.userName)) {
+    res.status(401);
+    res.send("Bad Username");
   } else {
+    res.status(200);
+    res.send("Good Username");
   }
-  */
 });
 
 io.on("connection", socket => {
