@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/janihar/nappulapeli/static/css/main.aaf36127.chunk.css",
+    "main.js": "/janihar/nappulapeli/static/js/main.3c1fe238.chunk.js",
+    "main.js.map": "/janihar/nappulapeli/static/js/main.3c1fe238.chunk.js.map",
+    "runtime-main.js": "/janihar/nappulapeli/static/js/runtime-main.71880a4d.js",
+    "runtime-main.js.map": "/janihar/nappulapeli/static/js/runtime-main.71880a4d.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/janihar/nappulapeli/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.4334e0c7.chunk.js": "/janihar/nappulapeli/static/js/2.4334e0c7.chunk.js",
+    "static/js/2.4334e0c7.chunk.js.map": "/janihar/nappulapeli/static/js/2.4334e0c7.chunk.js.map",
+    "index.html": "/janihar/nappulapeli/index.html",
+    "precache-manifest.05c6ff2b4b7befe7a06abf0b0fa6bed4.js": "/janihar/nappulapeli/precache-manifest.05c6ff2b4b7befe7a06abf0b0fa6bed4.js",
+    "service-worker.js": "/janihar/nappulapeli/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/janihar/nappulapeli/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.aaf36127.chunk.css.map": "/janihar/nappulapeli/static/css/main.aaf36127.chunk.css.map",
+    "static/js/2.4334e0c7.chunk.js.LICENSE": "/janihar/nappulapeli/static/js/2.4334e0c7.chunk.js.LICENSE",
+    "static/media/Koodarijahti_tunnus.svg": "/janihar/nappulapeli/static/media/Koodarijahti_tunnus.12b65193.svg",
+    "static/media/styles.min.css": "/janihar/nappulapeli/static/media/koodarijahti_tausta_tre.694bf809.jpg",
+    "static/media/vincit_logo_red.jpg": "/janihar/nappulapeli/static/media/vincit_logo_red.3fb72115.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.71880a4d.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.4334e0c7.chunk.js",
+    "static/css/main.aaf36127.chunk.css",
+    "static/js/main.3c1fe238.chunk.js"
+  ]
+}
