@@ -4,7 +4,6 @@ import socketIOClient from "socket.io-client";
 import Flatted, { stringify } from "flatted/esm";
 import Socket from "./Connection";
 //Endpoint
-const endPoint = "http://localhost:8080";
 let didWin = false;
 const GameForm = props => {
   //Counter
