@@ -1,30 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Counter from "../../components/Game/Counter";
 import socketIOClient from "socket.io-client";
-import { stringify } from "flatted/esm";
+import Flatted, { stringify } from "flatted/esm";
+import Socket from "./Connection";
 //Endpoint
 const endPoint = "http://localhost:8080";
-let socket;
-const GameForm = name => {
+let didWin = false;
+const GameForm = props => {
   //Counter
-  const [counter, setCounter] = useState(20);
+  const [counter, setCounter] = useState(20); //Our game counter
+  const [socket, setSocket] = useState(); // Saving Socket
   /**
    * Handling count for counter
    */
   const handleOnClick = () => {
     //Sending click for server
     socket.emit("game");
-    //Then refreshing our value
-
-    setCounter(counter - 1);
-
-    //Checking if we won
+    didWin = false;
     socket.on("number", data => {
-      if (data !== 0) {
-        setCounter(counter + data);
+      setCounter(data.playerPoints);
+      if (didWin === false) {
+        if (data.points > 0) {
+          alert("VOITTO");
+        } else {
+          setCounter(data.playerPoints);
+        }
+        didWin = true;
       }
-      //console.log("You won: ", )
-      localStorage.setItem("COUNTER", counter);
+      //setCounter(data);
+      //localStorage.setItem("COUNTER", counter);
     });
   };
 
@@ -32,21 +36,24 @@ const GameForm = name => {
   //Functions passed to useEffect are executed on
   //every component rendering—unless you pass a second argument to it.
   useEffect(() => {
-    if (socket !== null) {
-      socket = socketIOClient(endPoint, { query: { name, socket } });
-      console.log(socket);
-      //localStorage.setItem("SOCKET", JSON.stringify(socket));
-      //localStorage.setItem("COUNTER", 20);
-      setCounter(localStorage.getItem("COUNTER"));
-    } else {
-      console.log("sadasd");
-    }
+    console.log("Saving Socket...");
+    var name = getUSERNAME();
+    const sock = new Socket(name, localStorage.getItem("COUNTER"));
+    setSocket(sock.getSocket());
+    //LocalStorage will use string as a type of storage so therefore convert string to integer
+    setCounter(parseInt(localStorage.getItem("COUNTER")));
   }, []);
+
+  useEffect(() => {
+     localStorage.setItem("COUNTER", counter);
+  }, [counter]);
+
   //Get USERNAME from localStorage
   const getUSERNAME = () => {
     let USERNAME = localStorage.getItem("USERNAME");
     return USERNAME;
   };
+
   return (
     <div className="login-clean">
       <div className="container">
