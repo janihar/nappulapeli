@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/janihar/nappulapeli/precache-manifest.cf6cd69b8b1b04413f2fd783e2e07682.js"
+  "/janihar/nappulapeli/precache-manifest.31a4c2227956729b57820018743c5cee.js"
 );
 
 self.addEventListener('message', (event) => {
