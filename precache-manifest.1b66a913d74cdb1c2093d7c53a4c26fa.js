@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ca0476e12ec424e9d1cb33c6dda92acd",
+    "revision": "3b841f7eb7766911df92e40315440454",
     "url": "/nappulapeli/index.html"
   },
   {
