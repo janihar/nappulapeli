@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://github.com/janihar/nappulapeli",
-   "engines": {
+  "engines": {
     "node": "10.15.1"
   },
   "dependencies": {
