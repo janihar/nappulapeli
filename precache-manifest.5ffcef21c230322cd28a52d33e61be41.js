@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "66b4c5cc5a641d680553e6c2bd54fc67",
+    "revision": "4c9f332293716177edea71e01316c682",
     "url": "/janihar/nappulapeli/index.html"
   },
   {
-    "revision": "0105b68e4b41db69ae39",
+    "revision": "2074ac3682a223504eb4",
     "url": "/janihar/nappulapeli/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "f83cac99d00b77b135a5",
+    "revision": "005be7a759e61ba6df4a",
     "url": "/janihar/nappulapeli/static/css/main.aaf36127.chunk.css"
   },
   {
-    "revision": "0105b68e4b41db69ae39",
-    "url": "/janihar/nappulapeli/static/js/2.4334e0c7.chunk.js"
+    "revision": "2074ac3682a223504eb4",
+    "url": "/janihar/nappulapeli/static/js/2.b7a6cf0a.chunk.js"
   },
   {
     "revision": "138a6d51240ab070e8d1b20c54be6394",
-    "url": "/janihar/nappulapeli/static/js/2.4334e0c7.chunk.js.LICENSE"
+    "url": "/janihar/nappulapeli/static/js/2.b7a6cf0a.chunk.js.LICENSE"
   },
   {
-    "revision": "f83cac99d00b77b135a5",
-    "url": "/janihar/nappulapeli/static/js/main.2cba814b.chunk.js"
+    "revision": "005be7a759e61ba6df4a",
+    "url": "/janihar/nappulapeli/static/js/main.3a80b7e8.chunk.js"
   },
   {
     "revision": "5cf37b06672086d0b1dc",
