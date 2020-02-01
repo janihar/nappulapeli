@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5c5c5424f105498247c1289d4d8dc70a",
+    "revision": "fd4f1c79921eefaa88b41130f949f704",
     "url": "/nappulapeli/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nappulapeli/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "86a84c07a14aa50a848a",
+    "revision": "a77aa7aa0dca6e6d658b",
     "url": "/nappulapeli/static/css/main.e44e7f7f.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nappulapeli/static/js/2.e1c0dc76.chunk.js.LICENSE"
   },
   {
-    "revision": "86a84c07a14aa50a848a",
-    "url": "/nappulapeli/static/js/main.106be217.chunk.js"
+    "revision": "a77aa7aa0dca6e6d658b",
+    "url": "/nappulapeli/static/js/main.ec83ab63.chunk.js"
   },
   {
     "revision": "c6151795511e0010c861",

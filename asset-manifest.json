@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/nappulapeli/static/css/main.e44e7f7f.chunk.css",
-    "main.js": "/nappulapeli/static/js/main.106be217.chunk.js",
-    "main.js.map": "/nappulapeli/static/js/main.106be217.chunk.js.map",
+    "main.js": "/nappulapeli/static/js/main.ec83ab63.chunk.js",
+    "main.js.map": "/nappulapeli/static/js/main.ec83ab63.chunk.js.map",
     "runtime-main.js": "/nappulapeli/static/js/runtime-main.278d357e.js",
     "runtime-main.js.map": "/nappulapeli/static/js/runtime-main.278d357e.js.map",
     "static/css/2.47e06e2e.chunk.css": "/nappulapeli/static/css/2.47e06e2e.chunk.css",
     "static/js/2.e1c0dc76.chunk.js": "/nappulapeli/static/js/2.e1c0dc76.chunk.js",
     "static/js/2.e1c0dc76.chunk.js.map": "/nappulapeli/static/js/2.e1c0dc76.chunk.js.map",
     "index.html": "/nappulapeli/index.html",
-    "precache-manifest.d696473255ece94fa730855230ebecd7.js": "/nappulapeli/precache-manifest.d696473255ece94fa730855230ebecd7.js",
+    "precache-manifest.c408d66499e4989276891d2604a80b12.js": "/nappulapeli/precache-manifest.c408d66499e4989276891d2604a80b12.js",
     "service-worker.js": "/nappulapeli/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/nappulapeli/static/css/2.47e06e2e.chunk.css.map",
     "static/css/main.e44e7f7f.chunk.css.map": "/nappulapeli/static/css/main.e44e7f7f.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.47e06e2e.chunk.css",
     "static/js/2.e1c0dc76.chunk.js",
     "static/css/main.e44e7f7f.chunk.css",
-    "static/js/main.106be217.chunk.js"
+    "static/js/main.ec83ab63.chunk.js"
   ]
 }
