@@ -2,7 +2,7 @@
   "name": "nappulapeli",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/janihar/nappulapeli",
+  "homepage": "https://janihar.github.io/nappulapeli",
   "engines": {
     "node": "10.15.1"
   },
