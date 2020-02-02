@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5b02a7c7bbad182f27721dace612a884",
+    "revision": "581c4ab4570f3c0d72cea8b48e85dfd7",
     "url": "/nappulapeli/index.html"
   },
   {
-    "revision": "27ee0e47395c3f56cbd4",
+    "revision": "b8550fd53255cd933a71",
     "url": "/nappulapeli/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "21d4b30ca24e11542e6a",
-    "url": "/nappulapeli/static/css/main.e44e7f7f.chunk.css"
+    "revision": "85e9101cefbd2f6e65d7",
+    "url": "/nappulapeli/static/css/main.d43b5dde.chunk.css"
   },
   {
-    "revision": "27ee0e47395c3f56cbd4",
-    "url": "/nappulapeli/static/js/2.e1c0dc76.chunk.js"
+    "revision": "b8550fd53255cd933a71",
+    "url": "/nappulapeli/static/js/2.b176281b.chunk.js"
   },
   {
     "revision": "138a6d51240ab070e8d1b20c54be6394",
-    "url": "/nappulapeli/static/js/2.e1c0dc76.chunk.js.LICENSE"
+    "url": "/nappulapeli/static/js/2.b176281b.chunk.js.LICENSE"
   },
   {
-    "revision": "21d4b30ca24e11542e6a",
-    "url": "/nappulapeli/static/js/main.f57eac64.chunk.js"
+    "revision": "85e9101cefbd2f6e65d7",
+    "url": "/nappulapeli/static/js/main.9e561d61.chunk.js"
   },
   {
     "revision": "c6151795511e0010c861",
