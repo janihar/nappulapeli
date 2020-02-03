@@ -4,9 +4,10 @@ import socketIOClient from "socket.io-client";
 import Flatted, { stringify } from "flatted/esm";
 import Socket from "./Connection";
 import Scoreboard from "./Scoreboard";
+import { LOCALRESTARTGAME, SERVERRESTARTGAME } from "../../Connect";
 //Endpoint
 let didWin = false;
-const GameForm = props => {
+const GameForm = () => {
   //Counter
   const [counter, setCounter] = useState(20); //Our game counter
   const [winCounter, setWinCounter] = useState(0);
@@ -14,6 +15,7 @@ const GameForm = props => {
   const [winPoints, setWinPoints] = useState(0);
   const [hasNoPoints, setHasNoPoints] = useState(false);
   const [playerList, setPlayerList] = useState([]);
+  const [close, setClose] = useState(false);
   /**
    * Handling count for counter
    */
@@ -51,13 +53,14 @@ const GameForm = props => {
     //Listening for points. This socket will tell how many points are needed to next win
     sock.getSocket().on("points", data => {
       setPlayerList(data.playerlist);
-      setWinCounter(data);
+      setWinCounter(data.win);
     });
   }, []);
 
   useEffect(() => {
     if (counter === 0) {
       setHasNoPoints(true);
+      setClose(true);
     }
     localStorage.setItem("COUNTER", counter);
   }, [counter]);
@@ -67,11 +70,21 @@ const GameForm = props => {
     let USERNAME = localStorage.getItem("USERNAME");
     return USERNAME;
   };
+  //Restarting game from 0 to 20
+  const handleRestart = async event => {
+    event.preventDefault();
+    if (counter == 0) {
+      const data = await fetch(LOCALRESTARTGAME + getUSERNAME());
+      const res = await data.json();
+      setHasNoPoints(false);
+      setCounter(res.points);
+    }
+  };
 
   return (
     <div className="login-clean">
-      <form>
-        {winPoints > 0 && (
+      <form onSubmit={handleRestart}>
+        {winPoints > 0 && close === false && (
           <div class="alert alert-success">
             <button
               type="button"
@@ -82,7 +95,7 @@ const GameForm = props => {
             >
               &times;
             </button>
-            <strong>VOITTO!</strong> VOITIT {winPoints}
+            <strong>VOITTO!</strong> VOITIT {winPoints} pistettä
           </div>
         )}
 
@@ -111,28 +124,9 @@ const GameForm = props => {
             </div>
           )}
         </div>
-
-        
+        <Scoreboard players={playerList} />
       </form>
-      <Scoreboard players={playerList} />
     </div>
-
-    /*
-    <div className="login-clean">
-      <div className="form-group">
-        {winPoints > 0 && (
-          <div class="alert alert-success">
-            <strong>VOITTO!</strong> VOITIT {winPoints}
-          </div>
-        )}
-        <a>{getUSERNAME()}</a>
-        <div className="container">
-         
-          
-        </div>
-      </div>
-    </div>
-    */
   );
 };
 
