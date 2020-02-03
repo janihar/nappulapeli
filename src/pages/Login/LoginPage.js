@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   return (
     <div className="body">
-      <img src={logo} alt="Coding Duck" />
+      <img src={logo} alt="Coding Duck" className="img"/>
       <a>{players} Pelaajaa pelissä</a>
       <LoginForm />
     </div>

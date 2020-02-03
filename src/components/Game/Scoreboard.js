@@ -1,20 +1,34 @@
 import React from "react";
+import PropTypes from "prop-types";
+import "../../styles/scoreboard.css";
+
+/**
+ * Scoreboard which is shown to user
+ * Props needed: A map (key = username, value = userpoints)
+ */
 
 const Scoreboard = props => {
-  console.log(props);
   return (
-    <table>
-        <tr>
-            <th>Nimi</th>
-            <th>Pisteet</th>
+    <table id="scoreboard" class="table striped">
+      <thead>
+        <tr class="header">
+          <th>Team</th>
+          <th>Score</th>
         </tr>
-      <tr>
-        {props.players.forEach(function(value, key) {
-          return value.map(val => {return <td>dbabab</td>});
-        })}
-      </tr>
+        {props.players.map(val => (
+          <tr>
+            <td>{val[0]}</td>
+            <td>{val[1]}</td>
+          </tr>
+        ))}
+      </thead>
+      <tbody></tbody>
     </table>
   );
+};
+
+Scoreboard.prototype = {
+  props: PropTypes.object
 };
 
 export default Scoreboard;
