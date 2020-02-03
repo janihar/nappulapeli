@@ -3,6 +3,7 @@ import Counter from "../../components/Game/Counter";
 import socketIOClient from "socket.io-client";
 import Flatted, { stringify } from "flatted/esm";
 import Socket from "./Connection";
+import Scoreboard from "./Scoreboard";
 //Endpoint
 let didWin = false;
 const GameForm = props => {
@@ -11,6 +12,8 @@ const GameForm = props => {
   const [winCounter, setWinCounter] = useState(0);
   const [socket, setSocket] = useState(); // Saving Socket
   const [winPoints, setWinPoints] = useState(0);
+  const [hasNoPoints, setHasNoPoints] = useState(false);
+  const [playerList, setPlayerList] = useState([]);
   /**
    * Handling count for counter
    */
@@ -26,11 +29,12 @@ const GameForm = props => {
           setWinPoints(data.points);
         } else {
           setCounter(data.playerPoints);
+          if (data.playerPoints === 0) {
+            setHasNoPoints(true);
+          }
         }
         didWin = true;
       }
-      //setCounter(data);
-      //localStorage.setItem("COUNTER", counter);
     });
   };
 
@@ -46,11 +50,15 @@ const GameForm = props => {
     setCounter(parseInt(localStorage.getItem("COUNTER")));
     //Listening for points. This socket will tell how many points are needed to next win
     sock.getSocket().on("points", data => {
+      setPlayerList(data.playerlist);
       setWinCounter(data);
     });
   }, []);
 
   useEffect(() => {
+    if (counter === 0) {
+      setHasNoPoints(true);
+    }
     localStorage.setItem("COUNTER", counter);
   }, [counter]);
 
@@ -78,17 +86,35 @@ const GameForm = props => {
           </div>
         )}
 
+        {hasNoPoints === true && (
+          <div class="alert alert-danger">
+            <strong>HÄVISIT</strong> Haluatko pelata uudelleen?
+          </div>
+        )}
+
         <div className="illustration"></div>
         <div className="form-group">
           <Counter counter={counter} />
-          <Counter counter={winCounter} />
+          {winCounter > 0 && <Counter counter={winCounter} />}
         </div>
         <div className="form-group">
-          <div onClick={handleOnClick} className="button">
-            <a style={{ color: "black", outline: 0 }}>Paina</a>
-          </div>
+          {hasNoPoints === false && (
+            <div onClick={handleOnClick} className="button">
+              <a style={{ color: "black", outline: 0 }}>Paina</a>
+            </div>
+          )}
+          {hasNoPoints === true && (
+            <div className="form-group">
+              <button className="btn btn-primary btn-block" type="submit">
+                Pelaa uudelleen
+              </button>
+            </div>
+          )}
         </div>
+
+        
       </form>
+      <Scoreboard players={playerList} />
     </div>
 
     /*
