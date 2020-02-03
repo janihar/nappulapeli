@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [players, setPlayers] = useState(0);
 
   const playersOnline = async () => {
-    const data = await fetch(SERVERPLAYERSCOUNT);
+    const data = await fetch(LOCALPLAYERSCOUNT);
     const { online } = await data.json();
     setPlayers(online);
   };

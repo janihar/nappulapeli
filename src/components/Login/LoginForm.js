@@ -21,7 +21,7 @@ const LoginForm = props => {
   }, []);
 
   const doesExists = async name => {
-    const fetchUser = await fetch(SERVEREXISTS + name);
+    const fetchUser = await fetch(LOCALEXISTS + name);
     let responseStatus = await fetchUser.status;
 
     if (responseStatus === 200) {

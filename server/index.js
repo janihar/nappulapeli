@@ -1,6 +1,10 @@
 var app = require("express")();
 var server = require("http").Server(app);
-var io = require("socket.io")(server);
+var io = require("socket.io")(server, {
+  // below are engine.IO options
+  pingInterval: 25000,
+  pingTimeout: 60000
+});
 const PORT = process.env.PORT || 8080;
 var cors = require("cors");
 server.listen(PORT);
@@ -46,7 +50,6 @@ io.on("connection", socket => {
       socket.handshake.query.name,
       parseInt(players.get(socket.handshake.query.name)) + point
     );
-    console.log(players);
     point = point + 1;
     //Sending only points to one client not them all, therefore socket.emit not io.emit
     socket.emit("number", {
@@ -56,7 +59,7 @@ io.on("connection", socket => {
   });
   //Socket which sends data to client to tell for how many points are needed to win something
   socket.on("serverpoints", () => {
-    io.emit("points", nextWin());
+    io.emit("points", {win: nextWin(), playerlist: Array.from(players)});
   });
 
   socket.on("disconnect", () => {
