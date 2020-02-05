@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nappulapeli/precache-manifest.01c497815a539c0a56444730a00f12d6.js"
+  "/nappulapeli/precache-manifest.a99d498ec826d134cb9e575d9044d751.js"
 );
 
 self.addEventListener('message', (event) => {
