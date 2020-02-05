@@ -1,12 +1,12 @@
 import React from "react";
 import LoginPage from "../src/pages/Login/LoginPage";
 import GamePage from "../src/pages/Game/GamePage";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <BrowserRouter basename="/nappulapeli">
+      <HashRouter basename="/nappulapeli">
         <Switch>
           <Route exact path={"/"} render={props => <LoginPage {...props} />} />
           <Route
@@ -15,7 +15,7 @@ function App() {
             render={props => <GamePage {...props} />}
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

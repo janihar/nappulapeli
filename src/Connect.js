@@ -1,13 +1,13 @@
 //Connection queries
 
 // Run server from this specific location
-export const SERVER = "http://localhost:8080";
+export const SERVER = "http://localhost:8080"
 //If you want to use server from cloud use this https://vincgameserver.herokuapp.com
 //instead of localhost address
-export const SERVERSOCKET = "http://localhost:8080/";
+export const SERVERSOCKET = "localhost:8080/";
 //If you want to use serversocket from cloud
 //use this wss://vincgameserver.herokuapp.com/
-//instead of localhost address ;
+//instead of localhost address
 
 //Check if user exists
 export const LOCALEXISTS = "http://localhost:8080/doesexists?userName=";
