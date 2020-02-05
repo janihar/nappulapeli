@@ -2,7 +2,7 @@ Nappulapeli
 
 Sovellus : https://janihar.github.io/nappulapeli/
 
-![Sovellus](https://gyazo.com/3d9056022e6fe422e8d2bfbfe60a8250)
+![Sovellus](https://i.gyazo.com/3d9056022e6fe422e8d2bfbfe60a8250.png)
 
 Palvelin : https://vincgameserver.herokuapp.com/
 
