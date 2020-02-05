@@ -5,16 +5,20 @@ var io = require("socket.io")(server, {
   pingInterval: 25000,
   pingTimeout: 60000
 });
-const PORT = process.env.PORT || 8080;
 var cors = require("cors");
+
+const PORT = process.env.PORT || 8080;
 server.listen(PORT);
 
+//Server variables
 let serverCounter = 0;
 let winCount = 10;
 const players = new Map();
 
+//Middleware
 app.use(cors());
 
+//Checking server status
 app.get("/", (req, res) => {
   res.send("WORKING");
 });
@@ -34,19 +38,24 @@ app.get("/playersonline", (req, res) => {
   res.status(200);
   res.send({ online: players.size.toString() });
 });
-
+//Set player points to 20, restart game
 app.get("/restartgame", (req, res) => {
   players.set(req.query.userName, 20);
   res.status(200);
-  res.send({points : 20});
+  res.send({ points: 20 });
+});
+//"Loggin out" user
+app.get("/logout", (req, res) => {
+  if (players.delete(req.query.userName)) {
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(403);
+  }
 });
 
 //Websocket which handles communication ingame
 io.on("connection", socket => {
   checkUser(socket.handshake.query.name, socket.handshake.query.counter);
-  //Getting username, points and creating new player
-  //console.log("NEW PLAYER: ", socket.id);
-  //console.log("Pelaajat: ", players);
   socket.on("game", () => {
     socket.emit("serverpoints");
     //Check points
@@ -81,6 +90,7 @@ io.on("connection", socket => {
  */
 const checkPoints = () => {
   serverCounter++;
+  console.log(serverCounter);
   if (serverCounter !== 0) {
     if (serverCounter % 500 === 0) {
       //Every 500

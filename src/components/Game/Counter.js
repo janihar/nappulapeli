@@ -1,6 +1,7 @@
 import React from "react";
-import "../../styles/counter.css";
 import PropTypes from "prop-types";
+
+import "../../styles/counter.css";
 
 /**
  * Counter presents player points
