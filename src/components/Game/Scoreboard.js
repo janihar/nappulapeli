@@ -9,14 +9,14 @@ import "../../styles/scoreboard.css";
 
 const Scoreboard = props => {
   return (
-    <table id="scoreboard" class="table striped">
+    <table id="scoreboard" className="table striped">
       <thead>
-        <tr class="header">
-          <th>Team</th>
-          <th>Score</th>
+        <tr className="header">
+          <th>Käyttäjätunnus</th>
+          <th>Pisteet</th>
         </tr>
         {props.players.map(val => (
-          <tr>
+          <tr key={val[0]}>
             <td>{val[0]}</td>
             <td>{val[1]}</td>
           </tr>

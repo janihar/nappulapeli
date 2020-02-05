@@ -1,21 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+
 import Counter from "../../components/Game/Counter";
-import socketIOClient from "socket.io-client";
-import Flatted, { stringify } from "flatted/esm";
 import Socket from "./Connection";
 import Scoreboard from "./Scoreboard";
+import WinMessage from "../Message/Game/WinMessage";
+import LossMessage from "../Message/Game/LossMessage";
 import { LOCALRESTARTGAME, SERVERRESTARTGAME } from "../../Connect";
+import "../../styles/gameform.css";
+import "../../styles/playbutton.css";
 //Endpoint
 let didWin = false;
 const GameForm = () => {
   //Counter
   const [counter, setCounter] = useState(20); //Our game counter
-  const [winCounter, setWinCounter] = useState(0);
+  const [winCounter, setWinCounter] = useState(0); //How many points are needed for win
   const [socket, setSocket] = useState(); // Saving Socket
-  const [winPoints, setWinPoints] = useState(0);
-  const [hasNoPoints, setHasNoPoints] = useState(false);
-  const [playerList, setPlayerList] = useState([]);
-  const [close, setClose] = useState(false);
+  const [winPoints, setWinPoints] = useState(0); //How many points player won
+  const [hasNoPoints, setHasNoPoints] = useState(false); // If player has no points deny button press
+  const [playerList, setPlayerList] = useState([]); //Saving other players who are ingame
+  const [close, setClose] = useState(false); //Toggling win alert on and off, false represents off
   /**
    * Handling count for counter
    */
@@ -44,7 +47,6 @@ const GameForm = () => {
   //Functions passed to useEffect are executed on
   //every component rendering—unless you pass a second argument to it.
   useEffect(() => {
-    console.log("Saving Socket...");
     var name = getUSERNAME();
     const sock = new Socket(name, localStorage.getItem("COUNTER"));
     setSocket(sock.getSocket());
@@ -57,6 +59,7 @@ const GameForm = () => {
     });
   }, []);
 
+  //If counter is updated, trigger this Effect
   useEffect(() => {
     if (counter === 0) {
       setHasNoPoints(true);
@@ -73,47 +76,41 @@ const GameForm = () => {
   //Restarting game from 0 to 20
   const handleRestart = async event => {
     event.preventDefault();
-    if (counter == 0) {
+    if (counter === 0) {
       const data = await fetch(LOCALRESTARTGAME + getUSERNAME());
       const res = await data.json();
       setHasNoPoints(false);
       setCounter(res.points);
+      setClose(true);
     }
   };
 
   return (
     <div className="login-clean">
       <form onSubmit={handleRestart}>
+        <p className="username">{getUSERNAME()}</p>
         {winPoints > 0 && close === false && (
-          <div class="alert alert-success">
-            <button
-              type="button"
-              className="close"
-              data-dismiss="alert"
-              aria-label="Close"
-              onClick={() => setWinPoints(0)}
-            >
-              &times;
-            </button>
-            <strong>VOITTO!</strong> VOITIT {winPoints} pistettä
-          </div>
+          <WinMessage winpoints={winPoints} onClick={() => setWinPoints(0)} />
         )}
 
-        {hasNoPoints === true && (
-          <div class="alert alert-danger">
-            <strong>HÄVISIT</strong> Haluatko pelata uudelleen?
-          </div>
-        )}
+        {hasNoPoints === true && <LossMessage />}
 
         <div className="illustration"></div>
         <div className="form-group">
+          <a>Omat pisteet</a>
           <Counter counter={counter} />
+          <a>Tarvittavat pisteet seuraavaan voittoon</a>
           {winCounter > 0 && <Counter counter={winCounter} />}
         </div>
         <div className="form-group">
           {hasNoPoints === false && (
             <div onClick={handleOnClick} className="button">
-              <a style={{ color: "black", outline: 0 }}>Paina</a>
+              <a
+                style={{ color: "black"}}
+                className="noselect"
+              >
+                Paina
+              </a>
             </div>
           )}
           {hasNoPoints === true && (

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import UserExistMessage from "../Message/Login/UserExistMessage";
 import "../../styles/login-form-clean.css";
 import "../../styles/styles.css";
 import "../../styles/styles.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import logo from "../../assets/vincit_logo_red.jpg";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { LOCALEXISTS, SERVEREXISTS } from "../../Connect";
 
 const LoginForm = props => {
@@ -63,17 +65,14 @@ const LoginForm = props => {
     <div className="login-clean">
       <form onSubmit={onSubmit}>
         <img src={logo} alt="Amazing Vincit Logo" />
-        {userExists && (
-          <div class="alert alert-danger">
-            <strong>TUNNUS ON OLEMASSA</strong> Valitse uusi käyttäjätunnus
-          </div>
-        )}
+        {userExists && <UserExistMessage />}
         <div className="illustration"></div>
         <div className="form-group">
           <input
             className="form-control"
             placeholder="Käyttäjätunnus"
             onChange={handleChange}
+            maxLength="9"
           />
         </div>
         <div className="form-group">

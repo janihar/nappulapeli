@@ -15,3 +15,7 @@ export const SERVERPLAYERSCOUNT =
 export const LOCALRESTARTGAME = "http://localhost:8080/restartgame?userName=";
 export const SERVERRESTARTGAME =
   "https://vincgameserver.herokuapp.com/restartgame?userName=";
+//Logout
+export const LOCALLOGOUT = "http://localhost:8080/logout?userName=";
+export const SERVERLOGOUT =
+  "http://vincgameserver.herokuapp.com/logout?userName=";

@@ -8,7 +8,7 @@ export default class Socket {
       query: { name, counter },
       reconnection: true,
       reconnectionDelay: 500,
-      reconnectionAttempts: 10,
+      reconnectionAttempts: 10
     });
   }
 
