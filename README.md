@@ -1,6 +1,5 @@
 Nappulapeli
 
-
 Tehtävänanto : https://koodarijahti.fi/Ennakkotehtava_2020_Painikepeli.pdf
 
 Sovelluksen front-end toteutettu Reactilla ja apuna ulkonäköön käytetty Bootstrappiä
@@ -13,5 +12,13 @@ Selaa itsesi kansion juureen komentoriviltä käsin. Kun olet kansion juuressa
 (/nappulapeli), aja ensiksi komento npm install ja sitten komento npm start, jolloin sovellus käynnistyy. HUOM. myös palvelin tulee käynnistää, jotta sovelluksen logiikka toimii.
 
 Kuten ylhäällä mainittu, kun olet kansion juuressa (/nappipeli) niin navigoi cd server komennolla kansion juureen. Aja ensiksi komento npm install ja sen jälkeen npm start (jos haluat muokata palvelimen koodia samalla, kun kokeilet ohjelmaa, aja komento npm run dev)
+
+Lisäominaisuudet:
+
+Hieman alkuperäistä tehtävänantoa sivuten, käyttäjät menevät peliin käyttäjätunnuksella ja pelin sisässä pelaaja näkee muiden pelaajien pisteet pistetaulukossa sijoitusten mukaisesti. Suurimmat pisteet ylimpänä
+
+HUOM!:
+
+Kuvat ja muut materiaalit liittyen ulkonäköön on otettu Vincitin sivuilta, eivät ole minun omiani!
 
 
