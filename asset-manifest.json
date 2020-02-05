@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/nappulapeli/static/css/main.28f685c8.chunk.css",
-    "main.js": "/nappulapeli/static/js/main.2df60903.chunk.js",
-    "main.js.map": "/nappulapeli/static/js/main.2df60903.chunk.js.map",
+    "main.js": "/nappulapeli/static/js/main.29cd2e5d.chunk.js",
+    "main.js.map": "/nappulapeli/static/js/main.29cd2e5d.chunk.js.map",
     "runtime-main.js": "/nappulapeli/static/js/runtime-main.278d357e.js",
     "runtime-main.js.map": "/nappulapeli/static/js/runtime-main.278d357e.js.map",
     "static/css/2.47e06e2e.chunk.css": "/nappulapeli/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.c3c35e6c.chunk.js": "/nappulapeli/static/js/2.c3c35e6c.chunk.js",
-    "static/js/2.c3c35e6c.chunk.js.map": "/nappulapeli/static/js/2.c3c35e6c.chunk.js.map",
+    "static/js/2.24b0c2e7.chunk.js": "/nappulapeli/static/js/2.24b0c2e7.chunk.js",
+    "static/js/2.24b0c2e7.chunk.js.map": "/nappulapeli/static/js/2.24b0c2e7.chunk.js.map",
     "index.html": "/nappulapeli/index.html",
-    "precache-manifest.a99d498ec826d134cb9e575d9044d751.js": "/nappulapeli/precache-manifest.a99d498ec826d134cb9e575d9044d751.js",
+    "precache-manifest.d4afbee6892c6ad29b43cc346cb6df1d.js": "/nappulapeli/precache-manifest.d4afbee6892c6ad29b43cc346cb6df1d.js",
     "service-worker.js": "/nappulapeli/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/nappulapeli/static/css/2.47e06e2e.chunk.css.map",
     "static/css/main.28f685c8.chunk.css.map": "/nappulapeli/static/css/main.28f685c8.chunk.css.map",
-    "static/js/2.c3c35e6c.chunk.js.LICENSE": "/nappulapeli/static/js/2.c3c35e6c.chunk.js.LICENSE",
+    "static/js/2.24b0c2e7.chunk.js.LICENSE": "/nappulapeli/static/js/2.24b0c2e7.chunk.js.LICENSE",
     "static/media/Koodarijahti_tunnus.svg": "/nappulapeli/static/media/Koodarijahti_tunnus.12b65193.svg",
     "static/media/styles.min.css": "/nappulapeli/static/media/koodarijahti_tausta_tre.694bf809.jpg",
     "static/media/vincit_logo_red.jpg": "/nappulapeli/static/media/vincit_logo_red.3fb72115.jpg"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.278d357e.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.c3c35e6c.chunk.js",
+    "static/js/2.24b0c2e7.chunk.js",
     "static/css/main.28f685c8.chunk.css",
-    "static/js/main.2df60903.chunk.js"
+    "static/js/main.29cd2e5d.chunk.js"
   ]
 }
