@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import logo from "../../assets/Koodarijahti_tunnus.svg";
 import GameForm from "../../components/Game/GameForm";
 import { Redirect } from "react-router-dom";
-import { LOCALLOGOUT, SERVERLOGOUT } from "../../Connect";
 import "../../styles/playbutton.css";
 import "../../styles/styles.css";
 import "../../styles/gamepage.css";
+import { SERVER } from "../../Connect";
 
 const GamePage = props => {
   const [loggedIn, setLoggedIn] = useState(true);
 
   const handleLogout = async () => {
-    const data = await fetch(LOCALLOGOUT + localStorage.getItem("USERNAME"));
+    const data = await fetch(
+      SERVER + "/logout?userName=" + localStorage.getItem("USERNAME")
+    );
     const status = await data.status;
     //Succesfull
     if (status === 200) {
@@ -34,7 +36,7 @@ const GamePage = props => {
   return (
     <div className="body">
       <img src={logo} alt="Coding Duck" className="img" />
-      <button className="button" onClick={handleLogout}>
+      <button className="logoutbutton" onClick={handleLogout}>
         Kirjaudu ulos
       </button>
       <GameForm />

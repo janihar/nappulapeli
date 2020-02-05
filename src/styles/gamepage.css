@@ -10,7 +10,7 @@
   height: 263px;
 }
 
-.button {
+.logoutbutton {
 
   border: none;
   color: white;
@@ -26,6 +26,6 @@
   color: black;
   border-radius: 20px;
 }
-.button:hover {
+.logoutbutton:hover {
   background-color: #e7e7e7;
 }

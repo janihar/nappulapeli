@@ -1,10 +1,10 @@
 import socketIOClient from "socket.io-client";
-import { LOCALSOCKET, SERVERSOCKET } from "../../Connect";
+import { SERVERSOCKET } from "../../Connect";
 
 export default class Socket {
   constructor(name, counter) {
     console.log("Connection established");
-    this.socket = socketIOClient(LOCALSOCKET, {
+    this.socket = socketIOClient(SERVERSOCKET, {
       query: { name, counter },
       reconnection: true,
       reconnectionDelay: 500,

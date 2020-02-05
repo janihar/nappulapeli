@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-
 import Counter from "../../components/Game/Counter";
 import Socket from "./Connection";
 import Scoreboard from "./Scoreboard";
 import WinMessage from "../Message/Game/WinMessage";
 import LossMessage from "../Message/Game/LossMessage";
-import { LOCALRESTARTGAME, SERVERRESTARTGAME } from "../../Connect";
+import { SERVER } from "../../Connect";
+
 import "../../styles/gameform.css";
 import "../../styles/playbutton.css";
-//Endpoint
+
 let didWin = false;
+
 const GameForm = () => {
   //Counter
   const [counter, setCounter] = useState(20); //Our game counter
@@ -32,6 +33,7 @@ const GameForm = () => {
       if (didWin === false) {
         if (data.points > 0) {
           setWinPoints(data.points);
+          setClose(false);
         } else {
           setCounter(data.playerPoints);
           if (data.playerPoints === 0) {
@@ -77,7 +79,9 @@ const GameForm = () => {
   const handleRestart = async event => {
     event.preventDefault();
     if (counter === 0) {
-      const data = await fetch(LOCALRESTARTGAME + getUSERNAME());
+      const data = await fetch(
+        SERVER + "/restartgame?userName=" + getUSERNAME()
+      );
       const res = await data.json();
       setHasNoPoints(false);
       setCounter(res.points);
@@ -105,10 +109,7 @@ const GameForm = () => {
         <div className="form-group">
           {hasNoPoints === false && (
             <div onClick={handleOnClick} className="button">
-              <a
-                style={{ color: "black"}}
-                className="noselect"
-              >
+              <a style={{ color: "black" }} className="noselect">
                 Paina
               </a>
             </div>
